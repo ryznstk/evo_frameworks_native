@@ -1610,13 +1610,13 @@ VKAPI_ATTR VkResult QueuePresentKHR(VkQueue queue, const VkPresentInfoKHR* pPres
 
 VKAPI_ATTR void GetPhysicalDeviceFeatures2(VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures2* pFeatures) {
     GetData(physicalDevice).dispatch.GetPhysicalDeviceFeatures2(physicalDevice, pFeatures);
-    if (__builtin_expect(pProperties != nullptr, 1)) {
-        spoof_vk_physical_device_properties(&pProperties->properties);
-    }
 }
 
 VKAPI_ATTR void GetPhysicalDeviceProperties2(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties2* pProperties) {
     GetData(physicalDevice).dispatch.GetPhysicalDeviceProperties2(physicalDevice, pProperties);
+    if (__builtin_expect(pProperties != nullptr, 1)) {
+        spoof_vk_physical_device_properties(&pProperties->properties);
+    }
 }
 
 VKAPI_ATTR void GetPhysicalDeviceFormatProperties2(VkPhysicalDevice physicalDevice, VkFormat format, VkFormatProperties2* pFormatProperties) {
